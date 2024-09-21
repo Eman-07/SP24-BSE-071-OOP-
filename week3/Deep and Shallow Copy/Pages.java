@@ -19,7 +19,7 @@ public class Pages {
 //setters and getters
 
 	public void setNumbOfPages(int numOfPages){
-			this.numOfPages = numOfpages;
+			this.numOfPages = numOfPages;
 
 		}
 
