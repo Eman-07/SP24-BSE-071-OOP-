@@ -89,12 +89,20 @@ public class Artwork{
 	}
 
 
-    public Artwork shallowCopy(Artwork a){
+    public Artwork shallowCopy(Artwork ap){
 
-            Artwork a2 = new Artwork(a.getTitle(),a.getYear(),a.getArtist());
+            Artwork a = new Artwork(ap.getTitle(),ap.getYear(),ap.getArtist());
 
-            return a2;
+            return a;
     }
+
+
+	public Artwork deepCopy(Artwork ap){
+
+		Artwork a = new Artwork(ap.getTitle(),ap.getYear(),new Artist(ap.getArtist().getName()));
+
+		return a;
+}
 
 	
 }
