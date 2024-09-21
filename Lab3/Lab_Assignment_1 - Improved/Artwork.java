@@ -9,33 +9,27 @@ public class Artwork{
 		private int publishedYear;
 		private Artist artist;
 
-//constructor 1
-	Artwork(String title , int publishedYear , Artist artist){
-		this.title = title;
-		this.publishedYear = publishedYear;
-		this.artist = artist;
-	}
 
-//constructor 2
-	Artwork(String title , int publishedYear){
-		this.title  = title;
-		this.publishedYear = publishedYear;
-
-		//artist.setName("Unknown Artist");
-	}	
-	
-	Artwork(){
-		title = "Unknown";
-		publishedYear = 0000;
-}
-	
+            //constructors
 
 
+        Artwork(){
+            this.title = "Unknown";
+            this.publishedYear = 0000;
+            this.artist = new Artist("Unknown Artist");
+        }
 
-	Artwork(Artwork a){
-		this.title = a.getTitle();
-		this.publishedYear = a.getYear();
-	}
+        Artwork(String title, int publishedYear){
+                this.title = title;
+                this.publishedYear = publishedYear;
+                this.artist = new Artist("Unknown Artist");
+        }
+
+        Artwork(String title, int publishedYear, Artist artist){
+            this.title = title;
+            this.publishedYear = publishedYear;
+            this.artist = artist;
+    }
 
 
 //settter and gettters
@@ -72,23 +66,35 @@ public class Artwork{
 	}
 
 
-	public void displayWithArtist(){
+	// public void displayWithArtist(){
 
-		System.out.println("---------------------------");
-		System.out.println("ArtWork Title : "+title);
-		System.out.println("Year Published : "+publishedYear);
-		System.out.println("Artist Name : "+artist.getName());
-
-
-	}
-
+	// 	System.out.println("---------------------------");
+	// 	System.out.println("ArtWork Title : "+title);
+	// 	System.out.println("Year Published : "+publishedYear);
+	// 	System.out.println("Artist Name : "+artist.getName());
+    
+    
+	// }
+    
+    
+    
+    //METHODS 
 	public void display(){
-System.out.println("---------------------------");
 		System.out.println("ArtWork Title : "+title);
 		System.out.println("Year Published : "+publishedYear);
-
+        System.out.println("Artist Name : "+artist.getName());
+        System.out.println("---------------------------");
+        
 
 	}
+
+
+    public Artwork shallowCopy(Artwork a){
+
+            Artwork a2 = new Artwork(a.getTitle(),a.getYear(),a.getArtist());
+
+            return a2;
+    }
 
 	
 }

@@ -4,28 +4,33 @@
 
 
 public class Artist{
-		private String name;
-		
+    private String name;
+    
 //constructors
-	Artist(){
-		name = "noname"	;
-	}
+Artist(){
+    name = "noname"	;
+}
 
-	Artist(String name){
-		this.name = name;
-	}
+Artist(String name){
+    this.name = name;
+}
+
+//copy constructor
+Artist(Artist a){
+    this.name=a.getName();
+}
 
 //getters and setters
 
-	public void setName(String name){
-		this.name = name;
-	}
+public void setName(String name){
+    this.name = name;
+}
 
-	public String getName(){
-		return name;
-	}
+public String getName(){
+    return name;
+}
 
-	public void display(){
-		System.out.println("Artist Name : "+name);
-	}
+public void display(){
+    System.out.println("Artist Name : "+name);
+}
 }

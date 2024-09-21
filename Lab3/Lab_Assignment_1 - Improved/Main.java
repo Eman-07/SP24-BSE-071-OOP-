@@ -1,43 +1,51 @@
-// Muhammad Eman
-// Sp24-Bse-071
-// section: BSE B
+public class Main {
+
+    public static void main(String[] args) {
+        
+
+        
+
+        Artwork aw1 = new Artwork();
+
+        System.out.println("For object created using no arument contructor");
+        aw1.display();
 
 
-public class Main{
+      
 
-		public static void main(String arguments[]){
-
-
-		Artwork a1 = new Artwork(); //this will load default constructor which will assign unknown values to parameters
-		a1.display();
-
-
-
-		Artwork a2 = new Artwork("Sketch",2024);
-
-		a2.display();
+        Artwork aw2 = new Artwork("Painting",2015);
+        System.out.println("For object created using parameterized contructor with 2 args");
+        aw2.display();
+        
+        
+        Artwork aw3 = new Artwork("Sketch",2024,new Artist("Joshua"));
+        System.out.println("For object created using parameterized contructor with 3 args");
+        aw3.display();
 
 
-		
-		Artist at1 = new Artist("Ali");
+        System.out.println("------------------------");
+        System.out.println("Exihibiting shallow copy");
+        System.out.println("------------------------");
 
+        Artwork shcpy1 = new Artwork("Oil Painting" , 2023 , new Artist("Ali"));
 
-		Artwork a3 = new Artwork("Painting",2004, at1);
+        System.out.println("Deatails of Objects to be copied");
+        shcpy1.display();
 
-		a3.displayWithArtist();
+        Artwork shcpy2 = shcpy1.shallowCopy(shcpy1);
 
+        System.out.println("Deatails of object whose arguments are copied from another object");
+        shcpy2.display();
+        
 
+        System.out.println("Changing Name in one object");
+        shcpy2.getArtist().setName("Eman");
 
-//deep copy shallow copy stuff 
+        System.out.println("Printing Both objects");
+        shcpy1.display();
+        shcpy2.display();
 
-		// Artist a4 = new Artist("Drawing" , "2019" , at1);
-
-		
-
-//copying a4 to a5;
-		// Artist a5 = new Artist(a4);
-		
-		
-		
-	}	
+        System.out.println("Note that Name changed in copied object affects other object");
+    }
+    
 }
