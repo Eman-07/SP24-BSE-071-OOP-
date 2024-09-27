@@ -53,6 +53,9 @@ public class Shop {
         this.productlist = productlist;
     }
 
+
+
+//Method to add product
     public void addProduct() {
         productCounter++;
         Scanner ip = new Scanner(System.in);
@@ -74,14 +77,16 @@ public class Shop {
     }
 
 
-
+//method to view product
     public void viewProduct(int productID) {
         for (int i = 0; i < productlist.length; i++) {
-           if (productlist[i] == productlist[productID]) {
-               System.out.println(productlist[i]);
-               break;
-           }
+            if (productlist[i] == productlist[productID]) {
+                System.out.println(productlist[i]);
+                break;
+            }
         }
+
+//method to Delete book
 
 
     }

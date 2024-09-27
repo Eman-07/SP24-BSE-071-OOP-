@@ -24,7 +24,7 @@ public class Main {
                     break;
                 case 4:
                     System.out.print("Enter product id to view product : ");
-
+                    s1.viewProduct(sc.nextInt());
                     break;
                 case 5:
                     System.exit(1);
