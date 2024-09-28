@@ -15,7 +15,7 @@ public class Main {
 
         int choice;
         do {
-            System.out.printf("Enter 1 to view all products in shop\nEnter 2 to add product\nEnter 3 to Search product\nEnter 4 to delete product\nEnter 0 to exit\n Selection : $");
+            System.out.printf("Enter 1 to view all products in shop\nEnter 2 to add product\nEnter 3 to Search product\nEnter 4 to delete product\nEnter to modify product\nEnter 0 to exit\n Selection : ");
             choice = sc.nextInt();
 
             switch (choice){
@@ -29,10 +29,15 @@ public class Main {
                     break;
                 case 3:
                     System.out.println("Search Product Menu");
+                    s1.searchProduct();
                     break;
                 case 4:
                     System.out.println("In delete Product Menu");
                     s1.removeProduct();
+                    break;
+                case 5:
+                    System.out.println("Modify Product Menu");
+                    s1.modifyProduct();
                     break;
                 case 0:
                         break;
