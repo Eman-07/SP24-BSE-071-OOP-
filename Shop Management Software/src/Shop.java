@@ -178,10 +178,18 @@ public class Shop {
                 System.out.println("Matched Results : "+products[i].getProductName());
                 System.out.print("Enter Quantity for the product: ");
                 int q = input.nextInt();
+                if (q> products[i].getQuantity()) {
+                        System.out.println("Entered Quantity exceeds stock ");
+                    }
+                else if (q<0)
+                        System.out.println("You have entered negative quantity");
+                else{
+                    revenue = revenue+products[i].getPrice()*q;
+                    products[i].setQuantity(products[i].getQuantity()-q);
+                    System.out.println(q+" items of "+products[i].getProductName()+" Sold Successfully");
+                }
 
-                revenue = revenue+products[i].getPrice()*q;
-                products[i].setQuantity(products[i].getQuantity()-q);
-                System.out.println(q+" items of "+products[i].getProductName()+" Sold Successfully");
+
                 break;
             }
         }
