@@ -1,4 +1,5 @@
 import java.util.Scanner;
+import java.time.LocalDateTime;
 
 public class Main {
     public static void main(String[] args) {
@@ -15,7 +16,7 @@ public class Main {
 
         int choice;
         do {
-            System.out.printf("Enter 1 to view all products in shop\nEnter 2 to add product\nEnter 3 to Search product\nEnter 4 to delete product\nEnter to modify product\nEnter 0 to exit\n Selection : ");
+            System.out.printf("Enter 1 to view all products in shop\nEnter 2 to add product\nEnter 3 to Search product\nEnter 4 to delete product\nEnter 5 to modify product\nEnter 6 to sale product \nEnter 7 to view Revenue\nEnter 0 to exit\n Selection : ");
             choice = sc.nextInt();
 
             switch (choice){
@@ -38,6 +39,15 @@ public class Main {
                 case 5:
                     System.out.println("Modify Product Menu");
                     s1.modifyProduct();
+                    break;
+                case 6:
+                    System.out.println("Sale Product Menu");
+                    s1.saleProduct();
+                    break;
+
+                case 7:
+                    System.out.println("View Revenue");
+                    s1.viewRevenue();
                     break;
                 case 0:
                         break;

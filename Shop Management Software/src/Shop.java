@@ -1,3 +1,5 @@
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.Scanner;
 public class Shop {
     private String shopName;
@@ -6,6 +8,11 @@ public class Shop {
     private static Product products[] = new Product[20];
 
     public static int productCount = 0 ;
+    public static double revenue;
+
+    private   LocalDateTime time = LocalDateTime.now();
+    private DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy HH:mm:ss");
+
     static {
         products[productCount++] = new Product("Keyboard" , 500 , 10);
         products[productCount++] = new Product("Mouse" , 200 , 15);
@@ -50,7 +57,6 @@ public class Shop {
 
         products[productCount++] = new Product(name, price, quantity);
         System.out.println("Product added successfully");
-        input.close();
     }
 
 
@@ -83,7 +89,6 @@ public class Shop {
         }
         System.out.println("Product removed successfully");
         temp = null;
-        input.close();
     }
 
 
@@ -92,17 +97,16 @@ public class Shop {
         System.out.println("Products in Shop");
         displayAllProducts();
 
-        System.out.println("Enter the id of product you want to modify: ");
-        int id = sc.nextInt();
+        System.out.println("Enter the sr of product you want to modify: ");
+        int sr = sc.nextInt();
 
-        // product id is equal to sr of product which is managed by productCount
-        if (products[id] != null) {
+        if (products[sr] != null) {
             System.out.println("Product found");
 
             int choice = 1;
 
             do {
-                System.out.println(products[id]);
+                System.out.println(products[sr]);
 
                 System.out.printf("Which attribute would you like to edit?\n1)Name\n2)Price\n3)Quantity\n Selection : ");
                 int selection = sc.nextInt();
@@ -113,30 +117,29 @@ public class Shop {
                         sc.nextLine(); //it takes the last line
                         System.out.print("Enter New Name for the product: ");
                         String name = sc.nextLine();
-                        products[id].setProductName(name);
+                        products[sr].setProductName(name);
                         System.out.println("Product updated successfully");
                         break;
 
                     case 2:
                             System.out.print("Enter New Price for the product: ");
                             double price = sc.nextDouble();
-                            products[id].setPrice(price);
+                            products[sr].setPrice(price);
                             System.out.println("Product updated successfully");
                             break;
                     case 3:
                         System.out.print("Enter New Quantity for the product: ");
                         int quantity = sc.nextInt();
-                        products[id].setQuantity(quantity);
+                        products[sr].setQuantity(quantity);
                         System.out.println("Product updated successfully");
                         break;
                 }
 
-                System.out.printf("Do you want to change something again\n1 for yes\n0 for no");
+                System.out.printf("Do you want to change something again\n1 for yes\n0 for no\n Selection : ");
                 choice = sc.nextInt();
             }while(choice == 1);
 
         }
-        sc.close();
     }
 
 
@@ -154,6 +157,38 @@ public class Shop {
                 break;
             }
         }
+    }
+
+    public void saleProduct() {
+        Scanner input = new Scanner(System.in);
+
+        System.out.printf("Do you want list of names of products?\nEnter 1 for yes\nEnter 0 for no\nSelection : ");
+        int choice = input.nextInt();
+        if (choice == 1) {
+            for (int i = 0; i < productCount; i++) {
+                System.out.printf("%d : %s\n", i, products[i].getProductName());
+            }
+        }
+        input.nextLine();
+        System.out.println("Enter product name: ");
+        String name = input.nextLine();
+
+        for(int i = 0 ; i < productCount; i++) {
+            if (products[i].getProductName().equals(name)) {
+                System.out.println("Matched Results : "+products[i].getProductName());
+                System.out.print("Enter Quantity for the product: ");
+                int q = input.nextInt();
+
+                revenue = revenue+products[i].getPrice()*q;
+                products[i].setQuantity(products[i].getQuantity()-q);
+                System.out.println(q+" items of "+products[i].getProductName()+" Sold Successfully");
+                break;
+            }
+        }
+    }
+
+    public void viewRevenue(){
+        System.out.println("The total Revenue is " +revenue+ "$ at "+time.format(formatter));
     }
 
 
