@@ -32,9 +32,37 @@ public class Shop {
         this("no name", "no address", new Person("unknown","null@gmail.com") );
     }
 
+    public String getShopName() {
+        return shopName;
+    }
 
+    public void setShopName(String shopName) {
+        this.shopName = shopName;
+    }
 
+    public String getShopAddress() {
+        return shopAddress;
+    }
 
+    public void setShopAddress(String shopAddress) {
+        this.shopAddress = shopAddress;
+    }
+
+    public Person getShopOwner() {
+        return shopOwner;
+    }
+
+    public void setShopOwner(Person shopOwner) {
+        this.shopOwner = shopOwner;
+    }
+
+    public static Product[] getProducts() {
+        return products;
+    }
+
+    public static void setProducts(Product[] products) {
+        Shop.products = products;
+    }
 
     public void displayAllProducts() {
         for (int i = 0; i < productCount; i++) {
@@ -71,8 +99,10 @@ public class Shop {
 
         System.out.print("Enter product name you want to remove: ");
         String name = input.nextLine();
-        int i;
-        for ( i = 0; i < productCount; i++) {
+        int i,found;
+        found = 1;
+
+        for ( i = 0; i < productCount && found == 1; i++) {
             if (temp[i].getProductName().equals(name)) {
 
                 System.out.println("Product Found");
@@ -81,13 +111,21 @@ public class Shop {
                 for (int j = 0; j < i; j++) {
                     products[j] = temp[j];
                 }
+
+
                 for(int k = i; k <= productCount; k++) { //k=2 , k<3
                     products[k] = temp[k+1];
                 }
+                System.out.println("Product removed successfully");
+                found = 0;
                 break;
             }
+
         }
-        System.out.println("Product removed successfully");
+//        System.out.println("product count " +productCount);
+        if (i ==  productCount)
+            System.out.println("Product not found" );
+
         temp = null;
     }
 
@@ -135,7 +173,7 @@ public class Shop {
                         break;
                 }
 
-                System.out.printf("Do you want to change something again\n1 for yes\n0 for no\n Selection : ");
+                System.out.printf("Do you want to change something again\n1 for yes\nanything else to enter Main Menu\n Selection : ");
                 choice = sc.nextInt();
             }while(choice == 1);
 
@@ -157,6 +195,8 @@ public class Shop {
                 break;
             }
         }
+        if (i == productCount)
+            System.out.println("Product not found");
     }
 
     public void saleProduct() {
@@ -175,7 +215,7 @@ public class Shop {
 
         for(int i = 0 ; i < productCount; i++) {
             if (products[i].getProductName().equals(name)) {
-                System.out.println("Matched Results : "+products[i].getProductName());
+                System.out.printf("Matched Results : %s\t Items in stock : %d\t Sale Price : %.2f $\n",products[i].getProductName(),products[i].getQuantity(),products[i].getPrice());
                 System.out.print("Enter Quantity for the product: ");
                 int q = input.nextInt();
                 if (q> products[i].getQuantity()) {
@@ -188,8 +228,6 @@ public class Shop {
                     products[i].setQuantity(products[i].getQuantity()-q);
                     System.out.println(q+" items of "+products[i].getProductName()+" Sold Successfully");
                 }
-
-
                 break;
             }
         }

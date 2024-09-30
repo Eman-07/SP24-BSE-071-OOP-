@@ -1,27 +1,25 @@
 import java.util.Scanner;
-import java.time.LocalDateTime;
+//import java.time.LocalDateTime;
 
 public class Main {
     public static void main(String[] args) {
-        System.out.println("Hello World");
-//        Product p1 = new Product("Apple" , 50 , 50);
-//        System.out.println(p1);
-
         Shop s1 = new Shop("Abc" , "Lahore", new Person("Ali" , "Ali@gmail.com"));
-        System.out.println(s1);
-//        s1.addProduct();
-//        s1.displayAllProducts();
-//    }
         Scanner sc = new Scanner(System.in);
 
         int choice;
         do {
+            System.out.println("_______________________________________");
+            System.out.println("___Main Menu___");
             System.out.printf("Enter 1 to view all products in shop\nEnter 2 to add product\nEnter 3 to Search product\nEnter 4 to delete product\nEnter 5 to modify product\nEnter 6 to sale product \nEnter 7 to view Revenue\nEnter 0 to exit\n Selection : ");
             choice = sc.nextInt();
+
+            System.out.println("_______________________________________");
+
 
             switch (choice){
 
                 case 1:
+                    System.out.println("Products in Shop:");
                     s1.displayAllProducts();
                     break;
                 case 2:
@@ -58,9 +56,7 @@ public class Main {
 
 
         }while(choice != 0);
-
-
-//        Shop s2 = new Shop();
+        System.out.println("Thanks for using");
 
 
         }
