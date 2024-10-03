@@ -4,7 +4,7 @@ public class Main {
     Screen s1 = new Screen("Amoled", "5");
 
     s1.displaySeats();
-    
+    []
 
 
     }

@@ -1,0 +1,5 @@
+sender and receiver communication should be stored in diff arrays
+have an option to read one message, unseen messages and seen messages
+delete message option
+assigned date 03/10/2024
+submission deadline 11/2024
