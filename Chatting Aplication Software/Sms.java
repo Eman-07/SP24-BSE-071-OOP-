@@ -1,7 +1,5 @@
 import java.time.LocalTime;
 import java.time.LocalDate;
-import java.time.LocalTime;
-
 public class Sms {
     private String receiverNumber;
     private String senderNumber;
