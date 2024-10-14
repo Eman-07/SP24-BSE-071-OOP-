@@ -280,8 +280,7 @@ public class ChatMe {
 
         System.out.println("Delete Contact Menu");
         Scanner sc = new Scanner(System.in);
-        System.out.printf(
-                "Do you want to see the list of name in contacts? Enter 1 for YES & Any other for NO\nChoice : ");
+        System.out.printf("Do you want to see the list of name in contacts? Enter 1 for YES & Any other for NO\nChoice : ");
         int choice = sc.nextInt();
 
         if (choice == 1) {
