@@ -198,19 +198,18 @@ public class ChatMe {
             case 1:
                 addContact();
                 break;
-
-                case 2:
-                    findContact();
-                    break;
-                    case 3:
-                        deleteContact();
-                        break;
-                        case 4:
-                            displayContacts();
-                            break;
-                            default:
-                                System.out.println("Invalid choice");
-                                break;
+            case 2:
+                findContact();
+                break;
+            case 3:
+                deleteContact();
+                break;
+            case 4:
+                displayContacts();
+                break;
+            default:
+                System.out.println("Invalid choice");
+                break;
 
         }
     }
@@ -225,7 +224,7 @@ public class ChatMe {
 
         contactList[contactCount++] = new Contacts(name, phone);
         System.out.println("Contact Added");
-        sc.close();
+        manageContacts();
     }
 
     public boolean findContactWithName(String name) {
@@ -272,7 +271,6 @@ public class ChatMe {
         } else {
             System.out.println("Contact Not Found");
         }
-        sc.close();
     }
 
     public void deleteContact() {
@@ -313,9 +311,9 @@ public class ChatMe {
                     break;
                 }
             }
-            System.out.println("i : " + i);
+//            System.out.println("i : " + i);
 
-            System.out.println("Contact count : " + contactCount);
+//            System.out.println("Contact count : " + contactCount);
 
             // suppose that the contact you want to delete is at index 2 in contactList[]
             for (int j = 0; j < i; j++) { // this for loop stores the contacts before index 2
@@ -324,13 +322,11 @@ public class ChatMe {
             for (int j = i; j < contactCount; j++) { // this for loop stores the contacts after index 2
                 contactList[j] = contactList[j + 1];
             }
+            System.out.println("Contact Deleted");
 
         } else {
             System.out.println("Contact not found !!!");
         }
-
-        sc.close();
-
     }
 
     public void displayContacts() {
