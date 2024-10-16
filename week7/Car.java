@@ -1,15 +1,22 @@
+public class Car extends Vehical{
+    private int seats;
 
-public class Car extends Vehical {
-    private int numberOfSeats;
 
-
-    
     Car(){
-        super("Honda", "Prius");
+        System.out.println("Default Car constructor");
+    }  
+
+    Car(String make,int seats){ 
+        super(make);
+        this.seats = seats;
+        System.out.println("Parametrized Car constructor");
     }
 
-    @Override
+    Car(int seats){
+        this.seats = seats;
+    }
+
     public void display(){
-        System.out.println("Make : " + make + "Model : " + model + "Number of Seats" + numberOfSeats);
+        System.out.println("Number of seats " + seats);
     }
 }

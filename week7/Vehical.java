@@ -1,15 +1,18 @@
 public class Vehical{
-    String make;
-    String model;
+    private String make;
 
-    Vehical(String make , String model){
-        this.make = make;
-        this.model = model;
+
+    Vehical(){
+        System.out.println("Default vehical constructor");
     }
+    Vehical(String make){
+        this.make = make;
+        System.out.println("Parametrized Vehical constructor");
+    }
+
 
 
     public void display(){
-        System.out.printf("Make : %s\nModel : %s",make ,model);
+        System.out.println("Make : "+make);
     }
-
 }
