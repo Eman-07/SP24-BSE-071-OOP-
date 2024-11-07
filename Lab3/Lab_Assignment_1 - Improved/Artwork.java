@@ -92,7 +92,6 @@ public class Artwork{
     public Artwork shallowCopy(Artwork ap){
 
             Artwork a = new Artwork(ap.getTitle(),ap.getYear(),ap.getArtist());
-
             return a;
     }
 
