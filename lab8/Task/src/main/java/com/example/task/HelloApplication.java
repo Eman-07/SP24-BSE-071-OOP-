@@ -46,7 +46,7 @@ public class HelloApplication extends Application {
         Label name = new Label("Name");
         Label fatherName = new Label("Father Name");
         Label cnic = new Label("CNIC");
-        Label date = new Label("Date");
+        Label date = new Label("DOB");
         Label gender = new Label("Gender");
         Label city = new Label("City");
 
