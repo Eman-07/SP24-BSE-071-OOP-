@@ -6,14 +6,17 @@ public class Person {
     private String name;
     private String fatherName;
     private String cnic;
+    private String date;
+
     private String city;
     private Image image;
     private Gender gender;
 
-    public Person(String name, String fatherName, String cnic, String city, Image image, Gender gender) {
+    public Person(String name, String fatherName, String cnic, String date, String city, Image image, Gender gender) {
         this.name = name;
         this.fatherName = fatherName;
         this.cnic = cnic;
+        this.date = date;
         this.city = city;
         this.image = image;
         this.gender = gender;
@@ -66,4 +69,21 @@ public class Person {
     public void setGender(Gender gender) {
         this.gender = gender;
     }
+
+    public String getDate() {
+        return date;
+    }
+
+    @Override
+    public String toString() {
+        return "Person{" +
+                "gender=" + gender +
+                ", city='" + city + '\'' +
+                ", date='" + date + '\'' +
+                ", cnic='" + cnic + '\'' +
+                ", fatherName='" + fatherName + '\'' +
+                ", name='" + name + '\'' +
+                '}';
+    }
+
 }
