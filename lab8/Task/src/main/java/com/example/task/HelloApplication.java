@@ -187,10 +187,14 @@ public class HelloApplication extends Application {
         createButton.setTextFill(Color.RED);
         createButton.setOnAction(e -> creatorDetails());
 
-        Scene scene = new Scene(layout,600,400);
+        Scene scene = new Scene(layout,640,450);
+
+
 
 
         //Dark mode Toogle
+        scene.getStylesheets().add(getClass().getResource("/com/example/task/light.css").toExternalForm());
+
         Button darkmodetogler = new Button("🌞");
         layout.add(darkmodetogler, 5, 11);
         darkmodetogler.setScaleX(1);
@@ -202,16 +206,17 @@ public class HelloApplication extends Application {
             }else {
                 isDark = true;
             }
+
             if (isDark){
                 darkmodetogler.setText("🌙");
-//                layout.setStyle("-fx-background-color: #000000;");
-                scene.getStylesheets().add(HelloApplication.class.getResource("/dark.css").toExternalForm());
 
+                scene.getStylesheets().remove(getClass().getResource("/com/example/task/light.css").toExternalForm());
+                scene.getStylesheets().add(getClass().getResource("/com/example/task/dark.css").toExternalForm());
 
-            }else {
+            }else if (!isDark){
                 darkmodetogler.setText("🌞");
-                scene.getStylesheets().add(HelloApplication.class.getResource("light.css").toExternalForm());
-
+                scene.getStylesheets().remove(getClass().getResource("/com/example/task/dark.css").toExternalForm());
+                scene.getStylesheets().add(getClass().getResource("/com/example/task/light.css").toExternalForm());
 //                layout.setStyle("-fx-background-color: #ffffff;");
             }
         });

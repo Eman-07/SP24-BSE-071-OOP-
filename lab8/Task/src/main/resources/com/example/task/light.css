@@ -1,0 +1,56 @@
+/*.label {*/
+/*    -fx-text-fill: #000000;*/
+/*    -fx-background-color: #ffffff;*/
+/*}*/
+
+/*.grid-pane{*/
+/*    -fx-background-color: #ffffff;*/
+/*}*/
+
+
+/* light.css */
+
+.root {
+    -fx-background-color: #ffffff; /* White background for light mode */
+    -fx-text-fill: #000000; /* Black text */
+}
+
+.label, .button, .combo-box, .text-field, .date-picker {
+    -fx-text-fill: #000000; /* Black text for input fields */
+}
+
+.button {
+    -fx-background-color: #4CAF50; /* Green background for buttons */
+    -fx-text-fill: white;
+}
+
+.button:hover {
+    -fx-background-color: #45a049; /* Darker green on hover */
+}
+
+.text-field, .combo-box, .date-picker {
+    -fx-background-color: #ffffff; /* White background for input fields */
+    -fx-border-color: #cccccc; /* Light border color */
+}
+
+.grid-pane {
+    -fx-background-color: #f4f4f4; /* Light grey background for the grid pane */
+}
+
+/* Label styling */
+.label {
+    -fx-font-size: 14px;
+    -fx-font-weight: bold;
+}
+
+
+
+
+.radio-button{
+    -fx-text-fill: #000000;
+}
+
+.combo-box{
+    -fx-text-fill: #000000;
+    /*-fx-background-color: #000000;*/
+}
